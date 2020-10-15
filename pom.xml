@@ -33,4 +33,12 @@
             <url>https://dl.bintray.com/atlanmod/unveiling</url>
         </repository>
     </repositories>
+
+    <distributionManagement>
+        <repository>
+            <id>bintray-sunye</id>
+            <name>Atlanmod unveiling</name>
+            <url>https://api.bintray.com/maven/atlanmod/unveiling/unveiling-compare/;publish=1</url>
+        </repository>
+    </distributionManagement>
 </project>

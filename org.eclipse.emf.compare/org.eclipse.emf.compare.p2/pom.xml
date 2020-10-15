@@ -143,7 +143,7 @@
                             <packageName>${artifactId}</packageName>
                         </manifest>
                         <manifestEntries>
-                            <Bundle-SymbolicName>${artifactId}</Bundle-SymbolicName>
+                            <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
                             <Bundle-Version>${project.version}</Bundle-Version>
                         </manifestEntries>
                     </archive>
