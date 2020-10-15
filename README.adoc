@@ -1,0 +1,98 @@
+= Maven artifacts for Eclipse EMF Compare
+
+This repository contains the maven artifacts necessary to build and release Eclipse
+https://www.eclipse.org/emf/compare/[EMF Compare] plugins and features
+onto https://bintray.com[Bintray] or to simply build it on your machine.
+
+The builds on Bintray are available https://dl.bintray.com/atlanmod/unveiling[here].
+
+== Available versions
+
+|===
+| Unveiling EMF Compare Version | EMF Compare Version | EMF version | Eclipse Version
+
+| 3.3.10
+| 3.3.10
+| 2.15
+| 2020-03
+
+|===
+
+== Usage
+
+Add the following repository to your `pom.xml` and then choose which EMF dependencies you want to use in your Maven project:
+
+[source, xml]
+----
+    <repositories>
+        <!-- (...) -->
+        <repository>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <id>bintray-atlanmod</id>
+            <name>bintray</name>
+            <url>https://dl.bintray.com/atlanmod/unveiling</url>
+        </repository>
+    </repositories>
+----
+
+== Eclipse EMF Compare Artifact
+
+.EMF Common Dependency
+[source, xml]
+----
+<dependency>
+    <groupId>org.atlanmod.unveiling</groupId>
+    <artifactId>org.eclipse.emf.compare</artifactId>
+    <type>pom</type>
+    <version>${unveiling.compare.version}</version>
+</dependency>
+----
+
+== Build steps
+
+=== Versioning
+
+When building you should first make sure that the pom and manifest versions are compatible.
+
+When pom versions end with `-SNAPSHOT`, `Bundle-Version` in all MANIFEST.MF files should end with `.qualifier`.
+When pom versions don't have `-SNAPSHOT`, remove `.qualifier` in MANIFEST files.
+
+=== Building
+
+You can build it yourself with following command inside the cdo-maven folder:
+
+```
+$ mvn clean install
+```
+
+=== Releasing
+
+> Only for contributors.
+
+Before releasing on maven central, make sure that pom versions end with `-SNAPSHOT` and
+MANIFEST versions *do not end* with `.qualifier`, but have the correct release version number.
+
+To release on Bintray, execute:
+
+[source,shell]
+----
+mvn release:clean release:prepare
+----
+
+followed by:
+
+[source,shell]
+----
+mvn release:perform
+----
+
+=== Update POM and MANIFEST.MF versions
+
+[source,shell]
+----
+mvn versions:set -DnewVersion=3.3.10 -DautoVersionSubmodules=true
+mvn -f org.eclipse.emf.compare/org.eclipse.emf.compare.p2/ tycho-versions:set-version -D newVersion=3.3.10
+mvn -f org.eclipse.emf.compare/org.eclipse.emf.compare.p2/ tycho-versions:update-eclipse-metadata
+----

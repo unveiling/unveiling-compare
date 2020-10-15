@@ -1,0 +1,25 @@
+## Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+*.versionsBackup
+
+## Eclipse
+.mvn/timing.properties
+.project
+.classpath
+.settings/
+java-gen/
+
+## IntelliJ IDEA
+.idea/
+*.iml
+
+## MAC Files
+.DS_Store
+.java-version
