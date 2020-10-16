@@ -1,38 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <artifactId>unveiling-parent</artifactId>
+        <groupId>org.atlanmod.unveiling</groupId>
+        <version>1.0.0</version>
+        <relativePath/>
+    </parent>
 
     <groupId>org.atlanmod.unveiling</groupId>
     <artifactId>unveiling-compare</artifactId>
     <version>3.3.10</version>
-
     <packaging>pom</packaging>
 
     <name>Unveiling EMF Compare</name>
     <description>
+        Maven artifacts for Eclipse EMF Compare.
     </description>
 
     <properties>
         <guava.version>15.0</guava.version><!-- compatibility issue with Guava/HBase (15.0) -->
         <emf.version>2.23.0</emf.version>
-        <compare.version>3.3.11</compare.version>
     </properties>
 
     <modules>
         <module>org.eclipse.emf.compare</module>
         <module>org.eclipse.emf.compare/org.eclipse.emf.compare.p2</module>
     </modules>
-
-    <repositories>
-        <repository>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-            <id>bintray-atlanmod</id>
-            <name>bintray</name>
-            <url>https://dl.bintray.com/atlanmod/unveiling</url>
-        </repository>
-    </repositories>
 
     <distributionManagement>
         <repository>

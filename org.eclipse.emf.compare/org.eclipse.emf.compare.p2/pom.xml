@@ -5,21 +5,20 @@
 
     <parent>
         <groupId>org.atlanmod.unveiling</groupId>
-        <artifactId>unveiling-compare</artifactId>
-        <version>3.3.10</version>
-        <relativePath>../../pom.xml</relativePath>
+        <artifactId>unveiling-p2-parent</artifactId>
+        <version>1.0.0</version>
+        <relativePath/>
     </parent>
 
     <artifactId>org.eclipse.emf.compare.p2</artifactId>
-
+    <version>3.3.10</version>
     <packaging>eclipse-plugin</packaging>
-
     <name>EMF Compare P2</name>
     <description>
     </description>
 
     <properties>
-        <tycho-plugin.version>2.0.0</tycho-plugin.version>
+        <compare.version>3.3.11</compare.version>
     </properties>
 
     <repositories>
@@ -107,7 +106,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
-                <version>3.1.2</version>
                 <executions>
                     <execution>
                         <id>unpack-dependencies</id>
@@ -133,14 +131,13 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
-                <version>3.3.0</version>
                 <configuration>
                     <descriptors>
                         <descriptor>src/main/assembly/repackaged.xml</descriptor>
                     </descriptors>
                     <archive>
                         <manifest>
-                            <packageName>${artifactId}</packageName>
+                            <packageName>${project.artifactId}</packageName>
                         </manifest>
                         <manifestEntries>
                             <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
@@ -158,54 +155,6 @@
                     </execution>
                 </executions>
             </plugin>
-
         </plugins>
-
-        <pluginManagement>
-            <plugins>
-
-                <plugin>
-                    <groupId>org.eclipse.tycho</groupId>
-                    <artifactId>tycho-compiler-plugin</artifactId>
-                    <version>${tycho-plugin.version}</version>
-                </plugin>
-
-                <plugin>
-                    <groupId>org.eclipse.tycho</groupId>
-                    <artifactId>tycho-maven-plugin</artifactId>
-                    <version>${tycho-plugin.version}</version>
-                </plugin>
-
-                <plugin>
-                    <groupId>org.eclipse.tycho</groupId>
-                    <artifactId>tycho-p2-plugin</artifactId>
-                    <version>${tycho-plugin.version}</version>
-                </plugin>
-
-                <plugin>
-                    <groupId>org.eclipse.tycho</groupId>
-                    <artifactId>tycho-packaging-plugin</artifactId>
-                    <version>${tycho-plugin.version}</version>
-                </plugin>
-
-                <plugin>
-                    <groupId>org.eclipse.tycho</groupId>
-                    <artifactId>tycho-source-plugin</artifactId>
-                    <version>${tycho-plugin.version}</version>
-                </plugin>
-
-                <plugin>
-                    <groupId>org.eclipse.tycho</groupId>
-                    <artifactId>tycho-versions-plugin</artifactId>
-                    <version>${tycho-plugin.version}</version>
-                </plugin>
-
-                <plugin>
-                    <groupId>org.eclipse.tycho</groupId>
-                    <artifactId>target-platform-configuration</artifactId>
-                    <version>${tycho-plugin.version}</version>
-                </plugin>
-            </plugins>
-        </pluginManagement>
     </build>
 </project>
